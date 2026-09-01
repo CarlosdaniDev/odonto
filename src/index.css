@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/*
+  Odonto Medic — design tokens
+  ----------------------------
+  Paleta baseada na identidade real da clínica (o logo deles já usa azul-marinho
+  + verde-azulado/teal). Não usamos o azul genérico "premium" de referência —
+  usamos as cores que já aparecem no logo e nas peças reais da Odonto Medic,
+  porque autenticidade de marca pesa mais do que seguir uma paleta de exemplo.
+*/
+@theme {
+  --font-display: "Editorial Serif", "Caladea", Georgia, "Times New Roman", serif;
+  --font-sans: "Body Sans", "Carlito", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+
+  --color-navy: #122a42;
+  --color-navy-deep: #0a1a2b;
+  --color-teal: #2ea89a;
+  --color-teal-deep: #1f8a7e;
+  --color-teal-soft: #e9f4f2;
+  --color-gold: #b9944a;
+  --color-gold-soft: #f4ead2;
+  --color-ivory: #faf7f1;
+  --color-ink: #1c2a33;
+  --color-muted: #66747d;
+
+  --shadow-soft: 0 4px 16px rgba(18, 42, 66, 0.08);
+  --shadow-med: 0 18px 44px rgba(18, 42, 66, 0.14);
+  --shadow-teal: 0 18px 44px rgba(46, 168, 154, 0.22);
+
+  --radius-lg: 22px;
+  --radius-md: 14px;
+
+  --container-page: 1320px;
+}
+
+@font-face {
+  font-family: "Editorial Serif";
+  src: url("/fonts/Caladea-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Editorial Serif";
+  src: url("/fonts/Caladea-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Editorial Serif";
+  src: url("/fonts/Caladea-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Body Sans";
+  src: url("/fonts/Carlito-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Body Sans";
+  src: url("/fonts/Carlito-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background: var(--color-ivory);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-teal);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-teal);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.container-page {
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+@media (min-width: 768px) {
+  .container-page {
+    padding-inline: 40px;
+  }
+}
