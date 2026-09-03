@@ -42,8 +42,12 @@ o site ir ao ar:
 - **`src/data/testimonials.ts`** — depoimentos ilustrativos. Troque por
   avaliações reais e **autorizadas pelos pacientes**.
 - **`src/components/BeforeAfterSlider.tsx`** — o comparador de antes/depois
-  está com painéis genéricos (sem fotos), porque a clínica ainda não passou
-  nenhum caso real autorizado. Substitua pelas fotos reais quando tiver.
+  está usando uma foto de banco de imagens só como exemplo (não é paciente da
+  clínica), porque a Odonto Medic ainda não passou nenhum caso real
+  autorizado. Troque `public/img/resultado-exemplo-antes.jpg` e
+  `resultado-exemplo-depois.jpg` pelas fotos reais assim que tiver um caso
+  autorizado por escrito pelo paciente — nunca publique um "antes/depois" que
+  não seja de um paciente de verdade da clínica.
 - **`src/data/doctors.ts`** — os números de CRO/CRN estão como
   "(a confirmar)". Nunca preencha um número de registro profissional sem
   confirmar com o profissional responsável.
