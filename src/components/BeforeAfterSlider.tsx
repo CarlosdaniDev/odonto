@@ -3,10 +3,12 @@ import { MoveHorizontal } from "lucide-react"
 
 /**
  * Slider interativo de "antes/depois". IMPORTANTE: como a clínica ainda não
- * nos passou nenhum caso real autorizado, os dois lados usam painéis
- * ilustrativos (sem fotos de pacientes) só para demonstrar a interação —
- * troque `beforeSlot`/`afterSlot` por fotos reais e autorizadas assim que a
- * clínica disponibilizar.
+ * nos passou nenhum caso real autorizado, as fotos abaixo são um exemplo
+ * genérico (banco de imagens), só para demonstrar como a interação fica com
+ * fotos de verdade — NÃO é um paciente da Odonto Medic. Troque
+ * `resultado-exemplo-antes.jpg` / `resultado-exemplo-depois.jpg` por fotos
+ * reais e autorizadas por escrito pelo paciente assim que a clínica
+ * disponibilizar um caso.
  */
 export function BeforeAfterSlider() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -47,21 +49,31 @@ export function BeforeAfterSlider() {
         }}
       >
         {/* DEPOIS — ocupa o fundo inteiro */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-teal-soft to-white">
-          <span className="font-display text-sm uppercase tracking-[0.2em] text-teal-deep">Depois</span>
-          <span className="mt-2 max-w-[220px] text-center text-xs text-teal-deep/70">
-            Espaço reservado para foto real do caso, após autorização do paciente
+        <div className="absolute inset-0">
+          <img
+            src="/img/resultado-exemplo-depois.jpg"
+            alt="Exemplo ilustrativo de resultado 'depois' — imagem de banco, não é paciente da clínica"
+            className="h-full w-full object-cover"
+            draggable={false}
+          />
+          <span className="absolute top-4 right-4 rounded-full bg-navy-deep/70 px-3 py-1 font-display text-xs uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+            Depois
           </span>
         </div>
 
         {/* ANTES — recortado pela posição do slider */}
         <div
-          className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-navy to-navy-deep"
+          className="absolute inset-0"
           style={{ clipPath: `inset(0 ${100 - position}% 0 0)` }}
         >
-          <span className="font-display text-sm uppercase tracking-[0.2em] text-white/80">Antes</span>
-          <span className="mt-2 max-w-[220px] text-center text-xs text-white/50">
-            Espaço reservado para foto real do caso, após autorização do paciente
+          <img
+            src="/img/resultado-exemplo-antes.jpg"
+            alt="Exemplo ilustrativo de resultado 'antes' — imagem de banco, não é paciente da clínica"
+            className="h-full w-full object-cover"
+            draggable={false}
+          />
+          <span className="absolute top-4 left-4 rounded-full bg-navy-deep/70 px-3 py-1 font-display text-xs uppercase tracking-[0.2em] text-white backdrop-blur-sm">
+            Antes
           </span>
         </div>
 
@@ -77,8 +89,9 @@ export function BeforeAfterSlider() {
       </div>
 
       <p className="mx-auto mt-4 max-w-xl text-center text-xs text-muted">
-        Comparador ilustrativo — resultados podem variar de acordo com cada caso. As fotos reais dos
-        pacientes serão adicionadas somente mediante autorização.
+        Exemplo ilustrativo (imagem de banco) apenas para demonstrar o comparador — não é um paciente
+        da Odonto Medic. Será substituído por um caso real, com autorização por escrito do paciente,
+        antes da publicação.
       </p>
     </div>
   )
